@@ -6,8 +6,9 @@
     "type"              : "{{ repository.type }}",
     "replicating"       : "{{ stratum1.repository.replicating }}",
     {% if stratum1.repository.last_replication|date:"Y" != '1970' %}
-    "last_replication"  : "{{ stratum1.repository.last_replication.isoformat }}"
+    "last_replication"  : "{{ stratum1.repository.last_replication.isoformat }}",
     {% else %}
-    "last_replication"  : "unknown"
+    "last_replication"  : "unknown",
     {% endif %}
+    "whitelist_expiry"  : "{{ repository.retrieve_whitelist.expires.isoformat }}"
 }

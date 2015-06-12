@@ -33,11 +33,12 @@ function update_stratum0_display(s0_dom_id, json_data) {
         location.reload();
     }
 
-    $(s0_dom_id + " .stratum0_revision"     ).html(stratum0.revision);
+    $(s0_dom_id + " .stratum0_revision"        ).html(stratum0.revision);
     // .min_stratum1_revision is updated dynamically in stratum1_display!
-    $(s0_dom_id + " .stratum0_version"      ).html(stratum0.version);
-    $(s0_dom_id + " .stratum0_last_modified").html(format_timestamp(stratum0.last_modified));
-    $(s0_dom_id + " .stratum0_root_catalog" ).html(stratum0.root_catalog_hash);
+    $(s0_dom_id + " .stratum0_version"         ).html(stratum0.version);
+    $(s0_dom_id + " .stratum0_last_modified"   ).html(format_timestamp(stratum0.last_modified));
+    $(s0_dom_id + " .stratum0_whitelist_expiry").html(format_timestamp(stratum0.whitelist_expiry));
+    $(s0_dom_id + " .stratum0_root_catalog"    ).html(stratum0.root_catalog_hash);
 
     return s0_dom_id;
 }
@@ -171,6 +172,10 @@ window.onload = function() {
         <tr>
             <td>Last Modified:</td>
             <td class="stratum0_last_modified"></td>
+        </tr>
+        <tr>
+            <td>Whitelist Expiry Date:</td>
+            <td class="stratum0_whitelist_expiry"></td>
         </tr>
         <tr>
             <td>Root Catalog Hash:</td>
