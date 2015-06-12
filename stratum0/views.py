@@ -7,7 +7,6 @@ from datetime import datetime
 from dateutil.tz import tzutc
 
 from stratum0.models import Stratum0, Stratum1, ReplicationSite
-import cvmfs.repository
 
 def index(request):
     stratum0s = Stratum0.objects.all()
@@ -25,7 +24,7 @@ def details(request, stratum0_fqrn):
 
 
 @cache_page(60)
-def stratum0_details(request, stratum0_fqrn):    
+def stratum0_details(request, stratum0_fqrn):
     stratum0 = get_object_or_404(Stratum0, fqrn=stratum0_fqrn)
     stratum1s = Stratum1.objects.filter(stratum0=stratum0)
     context  = { 'stratum0' : stratum0,
@@ -65,27 +64,3 @@ def matrix(request):
     context = { 'replication_sites' : replication_sites,
                 'stratum1_map'      : s_map }
     return render(request, 'stratum0/matrix.html', context)
-
-
-class StartReplicationRedirectView(RedirectView):
-    permanent=False
-
-    def get_redirect_url(self, *args, **kwargs):
-        stratum0_fqrn = kwargs['stratum0_fqrn']
-        stratum1_id   = kwargs['stratum1_id']
-        stratum0 = get_object_or_404(Stratum0, fqrn=stratum0_fqrn)
-        stratum1 = get_object_or_404(Stratum1, pk=stratum1_id, stratum0=stratum0)
-        stratum1_repo = stratum1.repository()
-
-        if not stratum1_repo:
-            raise Http404("Stratum 1 not found under %s" % stratum1.url)
-
-        if not stratum1_repo.has_rest_api():
-            raise Http404("Stratum 1 does not provide a REST API")
-
-        if stratum1_repo.type != 'stratum1':
-            raise Http404("%s is not a Stratum 1" % stratum1.url)
-
-        stratum1_repo.start_replication()
-        return reverse_lazy('details', kwargs={'stratum0_fqrn': stratum0.fqrn},
-                            current_app='stratum0')
