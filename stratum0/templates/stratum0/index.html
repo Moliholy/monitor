@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
-{% block breadcrumbs %}{{ block.super }} : <a href="{% url 'index' %}">Stratum0</a>{% endblock %}
+{% block breadcrumbs %}{{ block.super }} : <a href="{% url stratum0.views.index %}">Stratum0</a>{% endblock %}
 
 {% block content %}
 <h1>Registered Stratum 0 Repositories</h1>
 {% if stratum0s %}
     <ul>
     {% for stratum0 in stratum0s %}
-        <li><a href="{% url 'details' stratum0.fqrn %}">{{ stratum0 }}</a></li>
+        <li><a href="{% url stratum0.views.details stratum0.fqrn %}">{{ stratum0 }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
