@@ -17,7 +17,7 @@ class Stratum:
     def _load_repository_info(self):
         repo = None
         try:
-            repo = cvmfs.repository.RemoteRepository(self.url)
+            repo = cvmfs.open_repository(self.url)
         except cvmfs.repository.RepositoryNotFound, e:
             repo = None
         return repo

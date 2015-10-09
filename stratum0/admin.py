@@ -18,7 +18,7 @@ class Stratum0AdminForm(forms.ModelForm):
         fqrn = ""
 
         try:
-            repo = cvmfs.repository.RemoteRepository(url)
+            repo = cvmfs.open_repository(url)
             fqrn = repo.fqrn
         except cvmfs.repository.RepositoryNotFound, e:
             raise forms.ValidationError(
@@ -42,7 +42,7 @@ class Stratum0Admin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         # availability of <obj.url> was checked in Stratum0AdminForm.clean
-        repo     = cvmfs.repository.RemoteRepository(obj.url)
+        repo     = cvmfs.open_repository(obj.url)
         obj.fqrn = repo.fqrn
         super(Stratum0Admin, self).save_model(request, obj, form, change)
 
@@ -61,7 +61,7 @@ class Stratum1AdminForm(forms.ModelForm):
         fqrn = ""
 
         try:
-            repo = cvmfs.repository.RemoteRepository(url)
+            repo = cvmfs.open_repository(url)
             fqrn = repo.fqrn
         except cvmfs.repository.RepositoryNotFound, e:
             raise forms.ValidationError("The URL '%s' does not point to a CVMFS replica" % url)
@@ -81,7 +81,7 @@ class Stratum1Admin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         # availability of <obj.url> and stratum0 was checked in Stratum1AdminForm.clean
-        repo         = cvmfs.repository.RemoteRepository(obj.url)
+        repo         = cvmfs.open_repository(obj.url)
         stratum0     = Stratum0.objects.get(fqrn=repo.fqrn)
         obj.stratum0 = stratum0
         super(Stratum1Admin, self).save_model(request, obj, form, change)
