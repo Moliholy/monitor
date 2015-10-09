@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block breadcrumbs %}{{ block.super }} : <a href="{% url stratum0.views.index %}">Stratum0</a> : <a href="{% url stratum0.views.details stratum0.fqrn %}">{{ stratum0.fqrn }}</a>{% endblock %}
+{% block breadcrumbs %}{{ block.super }} : <a href="{% url 'stratum0.views.index' %}">Stratum0</a> : <a href="{% url 'stratum0.views.details' stratum0.fqrn %}">{{ stratum0.fqrn }}</a>{% endblock %}
 
 {% load staticfiles %}
 
@@ -16,14 +16,14 @@ var stratum1s = [
 {
     "id"            : "{{ stratum1.id   }}",
     "name"          : "{{ stratum1.replication_site.name }}",
-    "info_url"      : "{% url stratum0.views.stratum1_details stratum0.fqrn stratum1.id %}"
+    "info_url"      : "{% url 'stratum0.views.stratum1_details' stratum0.fqrn stratum1.id %}"
 },
 {% endfor %}
 ];
 
 var initial_stratum0_revision = "{{ stratum0.repository.manifest.revision }}";
 var stratum0_fqrn             = "{{ stratum0.fqrn }}";
-var stratum0_info_url         = "{% url stratum0.views.stratum0_details stratum0.fqrn %}";
+var stratum0_info_url         = "{% url 'stratum0.views.stratum0_details' stratum0.fqrn %}";
 var stratum1_revisions        = {};
 
 function update_stratum0_display(s0_dom_id, json_data) {
