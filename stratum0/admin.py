@@ -8,6 +8,7 @@ import cvmfs.repository
 
 class Stratum0AdminForm(forms.ModelForm):
     class Meta:
+        fields = '__all__'
         model = Stratum0
 
     def clean(self):
@@ -50,6 +51,7 @@ class Stratum0Admin(admin.ModelAdmin):
 
 class Stratum1AdminForm(forms.ModelForm):
     class Meta:
+        fields = '__all__'
         model = Stratum1
 
     def clean(self):
