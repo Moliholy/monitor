@@ -32,3 +32,7 @@ Template for an apache configuration:
 	  Order allow,deny
 	  Allow from all
 	</Directory>
+
+
+7. If you want to use the cvmfs-browser application uncomment and configure the options included in setting.py.example.
+        NOTE: It will be necessary to install the cvmfs-browser application. It can be found in https://github.com/cvmfs/cvmfs-browser
