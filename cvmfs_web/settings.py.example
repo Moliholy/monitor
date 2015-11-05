@@ -180,11 +180,26 @@ LOGGING = {
 
 MONITOR_SHOW_BROWSER_URL = False
 
+# Number of tags that will be visualized per page
 # CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
-# CLOUD_BROWSER_DATASTORE = "CVMFilesystem"
-# CLOUD_BROWSER_CVMFS_CACHE = os.path.join(BASE_DIR, '/tmp/cvmfs_cache')  # change this accordingly
+
+# If using the cvmfs-browser uncomment this line
+# CLOUD_BROWSER_DATASTORE = 'CVMFilesystem'
+
+# change this accordingly and DO NOT FORGET TO CREATE THE DIRECTORY BEFORE
+# please also note this cache will contain the uncompressed files that are
+# downloaded upon user request and so far it won't be deleted (unless
+# manually, of course).
+# CLOUD_BROWSER_CVMFS_CACHE = os.path.join(BASE_DIR, '/tmp/cvmfs_cache')
+
+# if you want to enable only certain repositories fill in this field.
+# For example:
+# [ 'atlas.cern.ch', 'lhcb.cern.ch', 'alice.cern.ch', 'cms.cern.ch' ]
 # CLOUD_BROWSER_CVMFS_FQRN_WHITELIST = []  # all allowed
 
+# set the mapping of FQRN -> stratum1 URL
+# For example, atlas.cern.ch would be mapped to
+# http://cvmfs-stratum-one.cern.ch/opt/atlas because it ends in '.cern.ch'
 # CLOUD_BROWSER_CVMFS_URL_MAPPING = {
 #     '.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/',
 #     '.desy.de': 'http://cvmfs-stratum-one.cern.ch/cvmfs/',
