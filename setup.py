@@ -31,7 +31,7 @@ setup(
   packages=find_packages(),
   install_requires=[ # don't forget to adapt the matching RPM dependencies!
     'python-cvmfsutils >= 0.1.0',
-    'Django >= 1.4',
+    'Django >= 1.8',
     # if using the cvmfs-browser
     # 'cloud_browser'
   ]
