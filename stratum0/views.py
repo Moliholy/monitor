@@ -1,10 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404, HttpResponse
-from django.views.generic.base import RedirectView
 from django.views.decorators.cache import never_cache, cache_page
-from django.core.urlresolvers import reverse_lazy
-from datetime import datetime
-from dateutil.tz import tzutc
+from django.conf import settings
 
 from stratum0.models import Stratum0, Stratum1, ReplicationSite
 
@@ -19,7 +15,8 @@ def details(request, stratum0_fqrn):
     stratum0  = get_object_or_404(Stratum0, fqrn=stratum0_fqrn)
     stratum1s = Stratum1.objects.filter(stratum0=stratum0)
     context   = { 'stratum0'  : stratum0,
-                  'stratum1s' : stratum1s }
+                  'stratum1s' : stratum1s,
+                  'display_browser_url': settings.MONITOR_SHOW_BROWSER_URL }
     return render(request, 'stratum0/details.html', context)
 
 

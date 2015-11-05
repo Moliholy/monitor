@@ -162,6 +162,12 @@ window.onload = function() {
             <td>Description:</td>
             <td class="project_description">{{ stratum0.project_description }}</td>
         </tr>
+        {% if display_browser_url %}
+        <tr>
+            <td>Browse:</td>
+            <td class="project_description"><a href="/cb/browser/{{ stratum0.fqrn }}/latest">{{ stratum0.fqrn }}</a></td>
+        </tr>
+        {% endif %}
     </table>
 </div>
 
