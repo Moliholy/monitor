@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'stratum0',
 
     # necessary for the browser
-    #'cloud_browser',
+    #'cvmfs_browser',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

@@ -33,6 +33,6 @@ setup(
     'python-cvmfsutils >= 0.1.0',
     'Django >= 1.8',
     # if using the cvmfs-browser
-    # 'cloud_browser'
+    # 'cvmfs_browser >= 0.2.0'
   ]
 )

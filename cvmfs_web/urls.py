@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     url(r'^$', include('stratum0.urls')),
 
     # option for the browser
-    # url(r'^cb/', include('cloud_browser.urls')),
+    # url(r'^cb/', include('cvmfs_browser.urls')),
 )
