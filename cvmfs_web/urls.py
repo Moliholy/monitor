@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('stratum0.urls')),
+    url(r'^', include('stratum0.urls')),
 
     # option for the browser
     # url(r'^cb/', include('cvmfs_browser.urls')),
