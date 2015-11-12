@@ -1,0 +1,6 @@
+*/static/
+.idea/
+*.iml
+**.pyc
+*/db.sqlite3
+cvmfs_web/settings.py
