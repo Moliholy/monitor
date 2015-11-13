@@ -10,6 +10,7 @@ RUN pip install django git+https://github.com/cvmfs/python-cvmfsutils.git git+ht
 
 ENV workdir /opt/django-cvmfs-monitor
 RUN mkdir -p $workdir /run/httpd /var/run/httpd /var/log/httpd
+ADD django.conf /etc/httpd/conf.d/django.conf
 
 EXPOSE 80
 EXPOSE 443
