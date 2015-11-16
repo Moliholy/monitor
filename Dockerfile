@@ -2,7 +2,6 @@ FROM centos:7
 MAINTAINER Jose Molina <jose.molina@cern.ch>
 
 RUN yum install epel-release -y
-RUN yum update -y
 RUN yum install httpd python-pip gcc git swig mod_wsgi openssl wget python-devel openssl-devel -y
 RUN pip install --upgrade pip
 RUN easy_install M2Crypto
