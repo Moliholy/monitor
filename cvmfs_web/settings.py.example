@@ -143,7 +143,7 @@ INSTALLED_APPS = (
     'stratum0',
 
     # necessary for the browser
-    #'cvmfs_browser',
+    'cvmfs_browser',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -182,24 +182,26 @@ LOGGING = {
 ############################
 
 
-MONITOR_SHOW_BROWSER_URL = False
+MONITOR_SHOW_BROWSER_URL = True
 
 # Number of tags that will be visualized per page
-# CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
+CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
 
 # change this accordingly and DO NOT FORGET TO CREATE THE DIRECTORY BEFORE.
 # Please also note this cache will contain the uncompressed files that are
 # downloaded upon user request and so far it won't be deleted (unless
 # manually, of course).
-# CLOUD_BROWSER_CVMFS_CACHE = os.path.join(BASE_DIR, 'cvmfs_cache')
+CLOUD_BROWSER_CVMFS_CACHE = PROJECT_PATH + '/cvmfs_cache'
+if not os.path.isdir(CLOUD_BROWSER_CVMFS_CACHE):
+    os.mkdir(CLOUD_BROWSER_CVMFS_CACHE, 0755)
 
 # set the mapping of FQRN -> stratum1 URL
 # For example, atlas.cern.ch would be mapped to
 # http://cvmfs-stratum-one.cern.ch/opt/atlas because it ends in '.cern.ch'
-# CLOUD_BROWSER_CVMFS_URL_MAPPING = {
-#     '.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/',
-#     '.desy.de': 'http://cvmfs-stratum-one.cern.ch/cvmfs/',
-#     '.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/',
-#     '.amc.nl': 'http://cvmfs01.nikhef.nl/cvmfs/',
-#     '.opensciencegrid.org': 'http://cvmfs.racf.bnl.gov/cvmfs/',
-# }
+CLOUD_BROWSER_CVMFS_URL_MAPPING = {
+    '.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/',
+    '.desy.de': 'http://cvmfs-stratum-one.cern.ch/cvmfs/',
+    '.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/',
+    '.amc.nl': 'http://cvmfs01.nikhef.nl/cvmfs/',
+    '.opensciencegrid.org': 'http://cvmfs.racf.bnl.gov/cvmfs/',
+}
