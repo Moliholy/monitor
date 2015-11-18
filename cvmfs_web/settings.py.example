@@ -197,8 +197,6 @@ CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
 CLOUD_BROWSER_CVMFS_CACHE = '/var/lib/cvmfs'
 
 # set the mapping of FQRN -> stratum1 URL
-# For example, atlas.cern.ch would be mapped to
-# http://cvmfs-stratum-one.cern.ch/opt/atlas because it ends in '.cern.ch'
 CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'atlas.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas',
     'lhcb.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/lhcb',
