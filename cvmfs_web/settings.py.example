@@ -191,9 +191,10 @@ CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
 # Please also note this cache will contain the uncompressed files that are
 # downloaded upon user request and so far it won't be deleted (unless
 # manually, of course).
-CLOUD_BROWSER_CVMFS_CACHE = '/var/www/html'
-if not os.path.isdir(CLOUD_BROWSER_CVMFS_CACHE):
-    os.mkdir(CLOUD_BROWSER_CVMFS_CACHE, 0755)
+
+# if you want to change this directory make sure you conveniently edit the Dockerfile
+# to grant ownership to the 'apache' user
+CLOUD_BROWSER_CVMFS_CACHE = '/var/lib/cvmfs'
 
 # set the mapping of FQRN -> stratum1 URL
 # For example, atlas.cern.ch would be mapped to
