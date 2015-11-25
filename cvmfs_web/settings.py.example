@@ -214,7 +214,7 @@ CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'na61.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/na61',
     'sft.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/sft',
     'atlas-condb.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas-condb',
-    'atlas-nightlies.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas-nightlies',
+    'atlas-nightlies.cern.ch': 'http://cvmfs.racf.bnl.gov:8000/cvmfs/atlas-nightlies.cern.ch',
     'ilc.desy.de': 'http://grid-cvmfs-one.desy.de:8000/cvmfs/ilc.desy.de',
     'bbp.epfl.ch': 'http://cvmfs-stratum-one.cern.ch/opt/bbp',
     'cernvm-prod.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/cernvm-prod',
