@@ -201,6 +201,7 @@ CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'atlas.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas',
     'lhcb.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/lhcb',
     'alice.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/alice',
+    'cms.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/cms',
     'geant4.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/geant4',
     'mice.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/mice.egi.eu',
     'na62.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/na62.egi.eu',
