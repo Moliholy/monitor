@@ -150,22 +150,26 @@ window.onload = function() {
 }
 </script>
 
-{% if stratum0.project_description or stratum0.project_url %}
+{% if stratum0.project_description or stratum0.project_url or browser_url %}
 <h3>Project Information</h3>
 <div class="container" id="project_info">
     <table class="table">
+        {% if stratum0.project_url %}
         <tr>
             <td>Website:</td>
             <td class="project_url"><a href="{{ stratum0.project_url }}" target="_blank">{{ stratum0.project_url }}</a></td>
         </tr>
+        {% endif %}
+        {% if stratum0.project_description %}
         <tr>
             <td>Description:</td>
             <td class="project_description">{{ stratum0.project_description }}</td>
         </tr>
-        {% if display_browser_url %}
+        {% endif %}
+        {% if browser_url %}
         <tr>
             <td>Browse:</td>
-            <td class="project_description"><a href="/cb/browser/{{ stratum0.fqrn }}/latest">{{ stratum0.fqrn }}</a></td>
+            <td class="project_description"><a href="{{ browser_url }}">{{ stratum0.fqrn }}</a></td>
         </tr>
         {% endif %}
     </table>

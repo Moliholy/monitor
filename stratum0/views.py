@@ -14,9 +14,16 @@ def index(request):
 def details(request, stratum0_fqrn):
     stratum0  = get_object_or_404(Stratum0, fqrn=stratum0_fqrn)
     stratum1s = Stratum1.objects.filter(stratum0=stratum0)
-    context   = { 'stratum0'  : stratum0,
-                  'stratum1s' : stratum1s,
-                  'display_browser_url': settings.MONITOR_SHOW_BROWSER_URL }
+    browser_url = ''
+    if settings.MONITOR_SHOW_BROWSER_URL:
+        pos = request.path[:-1].rfind('/')
+        browser_url = '/'.join(
+            [request.path[0:pos], 'cb/browser', stratum0.fqrn, 'latest'])
+
+    context   = { 'stratum0'    : stratum0,
+                  'stratum1s'   : stratum1s,
+                  'browser_url' : browser_url
+                  }
     return render(request, 'stratum0/details.html', context)
 
 
