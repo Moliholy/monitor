@@ -33,7 +33,7 @@ setup(
   zip_safe=False,
   install_requires=[ # don't forget to adapt the matching RPM dependencies!
     'python-cvmfsutils >= 0.1.0',
-    'Django >= 1.8',
+    'Django == 1.8',
     # if using the cvmfs-browser
     # 'cvmfs_browser >= 0.2.0'
   ]
