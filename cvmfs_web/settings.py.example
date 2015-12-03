@@ -194,9 +194,11 @@ CLOUD_BROWSER_DEFAULT_LIST_LIMIT = 20
 
 # if you want to change this directory make sure you conveniently edit the Dockerfile
 # to grant ownership to the 'apache' user
-CLOUD_BROWSER_CVMFS_CACHE = '/var/lib/cvmfs'
+CLOUD_BROWSER_CVMFS_CACHE = '/var/lib/cvmfs/python-cache'
 
 # set the mapping of FQRN -> stratum1 URL
+# For example, atlas.cern.ch would be mapped to
+# http://cvmfs-stratum-one.cern.ch/opt/atlas because it ends in '.cern.ch'
 CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'atlas.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas',
     'lhcb.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/lhcb',
@@ -214,7 +216,7 @@ CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'na61.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/na61',
     'sft.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/sft',
     'atlas-condb.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas-condb',
-    'atlas-nightlies.cern.ch': 'http://cvmfs.racf.bnl.gov:8000/cvmfs/atlas-nightlies.cern.ch',
+    'atlas-nightlies.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/atlas-nightlies',
     'ilc.desy.de': 'http://grid-cvmfs-one.desy.de:8000/cvmfs/ilc.desy.de',
     'bbp.epfl.ch': 'http://cvmfs-stratum-one.cern.ch/opt/bbp',
     'cernvm-prod.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/cernvm-prod',
@@ -260,4 +262,8 @@ CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     'na49.cern.ch': 'http://cvmfs-stratum-one.cern.ch/opt/na49',
     'pravda.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/pravda.egi.eu',
     'ghost.egi.eu': 'http://cvmfs-egi.gridpp.rl.ac.uk:8000/cvmfs/ghost.egi.eu',
+
+    # new additions
+    'soft.galaxy': 'http://stm1-softgalaxy.hpc.mcgill.ca/cvmfs/soft.galaxy',
+    'ref.galaxy': 'http://stm1-refgalaxy.hpc.mcgill.ca/cvmfs/ref.galaxy',
 }
