@@ -266,4 +266,5 @@ CLOUD_BROWSER_CVMFS_URL_MAPPING = {
     # new additions
     'soft.galaxy': 'http://stm1-softgalaxy.hpc.mcgill.ca/cvmfs/soft.galaxy',
     'ref.galaxy': 'http://stm1-refgalaxy.hpc.mcgill.ca/cvmfs/ref.galaxy',
+    'ref.mugqic': 'http://stm1-refmugqic.hpc.mcgill.ca/cvmfs/ref.mugqic',
 }
